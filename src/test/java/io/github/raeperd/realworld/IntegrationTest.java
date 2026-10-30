@@ -194,7 +194,7 @@ class IntegrationTest {
     @Order(11)
     @Test
     void get_single_article_by_slug() throws Exception {
-        mockMvc.perform(get("/articles/{slug}", "how-to-train-your-dragon"))
+        mockMvc.perform(get("/articles/{slug}", "how_to_train_your_dragon"))
                 .andExpect(status().isOk())
                 .andExpect(validSingleArticleModel());
     }
@@ -202,7 +202,7 @@ class IntegrationTest {
     @Order(11)
     @Test
     void put_article() throws Exception {
-        mockMvc.perform(put("/articles/{slug}", "how-to-train-your-dragon")
+        mockMvc.perform(put("/articles/{slug}", "how_to_train_your_dragon")
                 .header(AUTHORIZATION, "Token " + token)
                 .contentType(APPLICATION_JSON)
                 .content("{\"article\":{\"body\":\"With two hands\"}}"))
@@ -214,7 +214,7 @@ class IntegrationTest {
     @Order(11)
     @Test
     void create_comments_for_article() throws Exception {
-        final var contentAsString = mockMvc.perform(post("/articles/{slug}/comments", "how-to-train-your-dragon")
+        final var contentAsString = mockMvc.perform(post("/articles/{slug}/comments", "how_to_train_your_dragon")
                 .header(AUTHORIZATION, "Token " + token)
                 .contentType(APPLICATION_JSON)
                 .content("{\"comment\":{\"body\":\"Thank you so much!\"}}"))
@@ -229,7 +229,7 @@ class IntegrationTest {
     @Order(12)
     @Test
     void all_comments_for_article() throws Exception {
-        mockMvc.perform(get("/articles/{slug}/comments", "how-to-train-your-dragon")
+        mockMvc.perform(get("/articles/{slug}/comments", "how_to_train_your_dragon")
                 .header(AUTHORIZATION, "Token " + token))
                 .andExpect(status().isOk())
                 .andExpect(validMultipleCommentModel());
@@ -238,7 +238,7 @@ class IntegrationTest {
     @Order(13)
     @Test
     void delete_comment_for_article() throws Exception {
-        mockMvc.perform(delete("/articles/{slug}/comments/{id}", "how-to-train-your-dragon", commentId)
+        mockMvc.perform(delete("/articles/{slug}/comments/{id}", "how_to_train_your_dragon", commentId)
                 .header(AUTHORIZATION, "Token " + token))
                 .andExpect(status().isOk());
     }
@@ -246,7 +246,7 @@ class IntegrationTest {
     @Order(12)
     @Test
     void post_favorite_article() throws Exception {
-        mockMvc.perform(post("/articles/{slug}/favorite", "how-to-train-your-dragon")
+        mockMvc.perform(post("/articles/{slug}/favorite", "how_to_train_your_dragon")
                 .header(AUTHORIZATION, "Token " + token))
                 .andExpect(status().isOk())
                 .andExpect(validSingleArticleModel());
@@ -285,7 +285,7 @@ class IntegrationTest {
     @Order(14)
     @Test
     void unfavorite_article() throws Exception {
-        mockMvc.perform(delete("/articles/{slug}/favorite", "how-to-train-your-dragon")
+        mockMvc.perform(delete("/articles/{slug}/favorite", "how_to_train_your_dragon")
                 .header(AUTHORIZATION, "Token " + token))
                 .andExpect(status().isOk())
                 .andExpect(validSingleArticleModel())
@@ -295,7 +295,7 @@ class IntegrationTest {
     @Order(15)
     @Test
     void delete_article() throws Exception {
-        mockMvc.perform(delete("/articles/{slug}", "how-to-train-your-dragon")
+        mockMvc.perform(delete("/articles/{slug}", "how_to_train_your_dragon")
                 .header(AUTHORIZATION, "Token " + token))
                 .andExpect(status().isNoContent());
     }
