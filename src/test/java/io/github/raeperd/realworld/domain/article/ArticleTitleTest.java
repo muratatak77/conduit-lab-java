@@ -9,11 +9,18 @@ class ArticleTitleTest {
     @Test
     void when_create_with_title_expect_valid_slug() {
         var title = "\n\n Some?\t\n Title  .";
-        var slugExpected = "some-title";
+        var slugExpected = "some_title";
 
         var articleTitle = ArticleTitle.of(title);
 
         assertThat(articleTitle.getSlug()).isEqualTo(slugExpected);
+    }
+
+    @Test
+    void when_create_with_hyphens_in_title_expect_underscores_in_slug() {
+        var articleTitle = ArticleTitle.of("- Well-known - Title -");
+
+        assertThat(articleTitle.getSlug()).isEqualTo("well_known_title");
     }
 
     @Test

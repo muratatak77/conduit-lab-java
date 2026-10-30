@@ -54,7 +54,7 @@ Make sure the right content type like `Content-Type: application/json; charset=u
 ```JSON
 {
   "article": {
-    "slug": "how-to-train-your-dragon",
+    "slug": "how_to_train_your_dragon",
     "title": "How to train your dragon",
     "description": "Ever wonder how?",
     "body": "It takes a Jacobian",
@@ -78,7 +78,7 @@ Make sure the right content type like `Content-Type: application/json; charset=u
 ```JSON
 {
   "articles":[{
-    "slug": "how-to-train-your-dragon",
+    "slug": "how_to_train_your_dragon",
     "title": "How to train your dragon",
     "description": "Ever wonder how?",
     "body": "It takes a Jacobian",
@@ -94,7 +94,7 @@ Make sure the right content type like `Content-Type: application/json; charset=u
       "following": false
     }
   }, {
-    "slug": "how-to-train-your-dragon-2",
+    "slug": "how_to_train_your_dragon-2",
     "title": "How to train your dragon 2",
     "description": "So toothless",
     "body": "It a dragon",
